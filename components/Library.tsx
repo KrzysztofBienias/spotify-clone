@@ -3,9 +3,21 @@
 import { TbPlaylist } from 'react-icons/tb';
 import { AiOutlinePlus } from 'react-icons/ai';
 
+import useAuthModal from '@/hooks/useAuthModal';
+import useUploadModal from '@/hooks/useUploadModal';
+import { useUser } from '@/hooks/useUser';
+
 const Library = () => {
+    const authModal = useAuthModal();
+    const uploadModal = useUploadModal();
+    const { user } = useUser();
+
     const onClick = () => {
-        // upload
+        if (!user) {
+            return authModal.onOpen();
+        }
+
+        return uploadModal.onOpen();
     };
 
     return (
