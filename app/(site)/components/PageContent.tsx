@@ -1,5 +1,6 @@
 'use client';
 
+import SongItem from '@/components/SongItem';
 import { Song } from '@/types';
 
 interface Props {
@@ -17,7 +18,7 @@ const PageContent: React.FC<Props> = ({ songs }) => {
                        xl:grid-cols-5 2xl:grid-cols-8 gap-4 mt-4"
         >
             {songs.map((song) => (
-                <p>{song.title}</p>
+                <SongItem key={song.id} song={song} onClick={() => {}} />
             ))}
         </div>
     );
