@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import getSongsByTitle from '@/actions/getSongsByTitle';
 import SearchInput from '@/components/SearchInput';
+import SearchContent from '@/app/search/components/SearchContent';
 
 interface Props {
     searchParams: {
@@ -20,7 +21,7 @@ const Search: React.FC<Props> = async ({ searchParams }) => {
                 </div>
             </Header>
 
-            <div>Search result</div>
+            <SearchContent songs={songs} />
         </div>
     );
 };
