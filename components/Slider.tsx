@@ -8,12 +8,16 @@ interface Props {
 }
 
 const Slider: React.FC<Props> = ({ value = 1, onChange }) => {
+    const handleChange = (newValue: number[]) => {
+        onChange?.(newValue[0]);
+    };
+
     return (
         <RadixSlider.Root
             className="relative flex items-center select-none touch-none w-full h-10"
             defaultValue={[1]}
             value={[value]}
-            onValueChange={() => {}}
+            onValueChange={handleChange}
             max={1}
             step={0.01}
             aria-label="Volume"
