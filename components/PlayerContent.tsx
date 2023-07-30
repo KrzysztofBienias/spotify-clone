@@ -6,6 +6,7 @@ import { AiFillStepBackward as BackwardIcon, AiFillStepForward as ForwardIcon } 
 import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2';
 
 import { Song } from '@/types';
+import usePlayer from '@/hooks/usePlayer';
 import MediaItem from '@/components/MediaItem';
 import LikeButton from '@/components/LikeButton';
 import Slider from '@/components/Slider';
@@ -16,11 +17,42 @@ interface Props {
 }
 
 const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
+    const player = usePlayer();
     const [volume, setVolume] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const PlayIcon = isPlaying ? BsPauseFill : BsPlayFill;
     const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
+
+    const onPlayPrevious = () => {
+        if (player.ids.length === 0) {
+            return;
+        }
+
+        const currentIndex = player.ids.findIndex((id) => id === player.activeId);
+        const previousSong = player.ids[currentIndex - 1];
+
+        if (!previousSong) {
+            return player.setId(player.ids[player.ids.length - 1]);
+        }
+
+        player.setId(previousSong);
+    };
+
+    const onPlayNext = () => {
+        if (player.ids.length === 0) {
+            return;
+        }
+
+        const currentIndex = player.ids.findIndex((id) => id === player.activeId);
+        const nextSong = player.ids[currentIndex + 1];
+
+        if (!nextSong) {
+            return player.setId(player.ids[0]);
+        }
+
+        player.setId(nextSong);
+    };
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
@@ -45,7 +77,7 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
             <div className="hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
                 <BackwardIcon
                     size={30}
-                    onClick={() => {}}
+                    onClick={onPlayPrevious}
                     className="text-neutral-400 cursor-pointer hover:text-white transition"
                 />
 
@@ -58,7 +90,7 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
 
                 <ForwardIcon
                     size={30}
-                    onClick={() => {}}
+                    onClick={onPlayNext}
                     className="text-neutral-400 cursor-pointer hover:text-white transition"
                 />
             </div>
