@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import { AiFillStepBackward as BackwardIcon, AiFillStepForward as ForwardIcon } from 'react-icons/ai';
 import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2';
@@ -7,6 +8,7 @@ import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2';
 import { Song } from '@/types';
 import MediaItem from '@/components/MediaItem';
 import LikeButton from '@/components/LikeButton';
+import Slider from '@/components/Slider';
 
 interface Props {
     song: Song;
@@ -14,8 +16,11 @@ interface Props {
 }
 
 const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
-    const PlayIcon = true ? BsPauseFill : BsPlayFill;
-    const VolumeIcon = true ? HiSpeakerXMark : HiSpeakerWave;
+    const [volume, setVolume] = useState(1);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const PlayIcon = isPlaying ? BsPauseFill : BsPlayFill;
+    const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
@@ -61,8 +66,7 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
             <div className="hidden md:flex w-dyll justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px]">
                     <VolumeIcon size={34} onClick={() => {}} className="cursor-pointer" />
-
-                    {/*  Place for a slider...  */}
+                    <Slider value={volume} onChange={(value) => setVolume(value)} />
                 </div>
             </div>
         </div>
