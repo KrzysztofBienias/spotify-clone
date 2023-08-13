@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import AccountContent from '@/app/account/components/AccountContent';
 
 const Page = () => {
     return (
@@ -11,7 +12,7 @@ const Page = () => {
                 </div>
             </Header>
 
-            {/* TODO:  content... */}
+            <AccountContent />
         </div>
     );
 };
