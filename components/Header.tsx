@@ -40,7 +40,7 @@ const Header: React.FC<Props> = ({ children, className }) => {
     };
 
     return (
-        <div
+        <header
             className={twMerge(
                 `
                 h-fit
@@ -105,7 +105,7 @@ const Header: React.FC<Props> = ({ children, className }) => {
             </div>
 
             {children}
-        </div>
+        </header>
     );
 };
 
