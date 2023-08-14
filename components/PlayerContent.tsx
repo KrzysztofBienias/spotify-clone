@@ -19,7 +19,8 @@ interface Props {
 
 const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
     const player = usePlayer();
-    const [volume, setVolume] = useState(1);
+    const [volume, setVolume] = useState(0.5);
+    const [previousVolume, setPreviousVolume] = useState(0.5);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const PlayIcon = isPlaying ? BsPauseFill : BsPlayFill;
@@ -82,16 +83,26 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
         }
     };
 
+    const onSliderChange = (value: number) => {
+        setVolume(value);
+
+        if (value !== 0) {
+            setPreviousVolume(value);
+        }
+    };
+
     const toggleMute = () => {
         if (volume === 0) {
-            setVolume(1);
+            setVolume(previousVolume);
         } else {
+            setPreviousVolume(volume);
             setVolume(0);
         }
     };
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
+            {/* Song preview */}
             <div className="flex w-full justify-start">
                 <div className="flex items-center gap-x-4">
                     <MediaItem song={song} />
@@ -99,7 +110,7 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
                 </div>
             </div>
 
-            {/* Mobile */}
+            {/* Mobile controls */}
             <div className="flex md:hidden col-auto w-full justify-end items-center">
                 <div
                     onClick={handlePlay}
@@ -109,7 +120,7 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
                 </div>
             </div>
 
-            {/* Desktop */}
+            {/* Desktop controls */}
             <div className="hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
                 <BackwardIcon
                     size={30}
@@ -131,10 +142,11 @@ const PlayerContent: React.FC<Props> = ({ song, songUrl }) => {
                 />
             </div>
 
+            {/* Volume controls */}
             <div className="hidden md:flex w-dyll justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px]">
                     <VolumeIcon size={34} onClick={toggleMute} className="cursor-pointer" />
-                    <Slider value={volume} onChange={(value) => setVolume(value)} />
+                    <Slider value={volume} onChange={onSliderChange} />
                 </div>
             </div>
         </div>
