@@ -1,10 +1,13 @@
 import React, { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { BeatLoader } from 'react-spinners';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    loading?: boolean;
+}
 
 const Button = forwardRef<HTMLButtonElement, Props>(
-    ({ className, children, disabled, type = 'button', ...props }, ref) => {
+    ({ className, children, disabled, type = 'button', loading = false, ...props }, ref) => {
         return (
             <button
                 type={type}
@@ -30,7 +33,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
                 ref={ref}
                 {...props}
             >
-                {children}
+                {!loading ? children : <BeatLoader color="#000" size={8} speedMultiplier={0.5} />}
             </button>
         );
     },

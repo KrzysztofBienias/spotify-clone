@@ -128,7 +128,7 @@ const UploadModal = () => {
                     />
                 </div>
 
-                <Button disabled={isLoading} type="submit">
+                <Button disabled={isLoading} type="submit" loading={isLoading}>
                     Create
                 </Button>
             </form>
