@@ -1,34 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Spotify Clone</h1>
 
-## Getting Started
+<p align="center">🎶 Elevate your music experience with this full-stack Spotify-inspired app.</p>
 
-First, run the development server:
+<p align="center"><img src="https://github.com/bienku/spotify-clone/assets/99097883/997b039f-2d3b-4ddc-b47f-ac9200576e3d" alt="Main Screen"></p>
 
-```bash
-npm run dev
+<h2>⚙️ Installation</h2>
+
+<p>- Clone the repo</p>
+<pre><code>git clone https://github.com/bienku/spotify-clone.git</code></pre>
+
+<p>- Install dependencies</p>
+<pre><code>npm install
+# or
+yarn install
+# or
+pnpm install</code></pre>
+
+<p>- Create a <code>.env.local</code> file and fill it with the necessary environment variables (follow .env.example)</p>
+
+<pre><code>NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+</code></pre>
+
+<p>- Run the development server:</p>
+<pre><code>npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-```
+</code></pre>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>🔗 The app will be available at <a href="http://localhost:3000">http://localhost:3000</a>.</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<h2>💻 Tech Stack</h2>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<ul>
+  <li>Next.js</li>
+  <li>TypeScript</li>
+  <li>Supabase</li>
+  <li>Stripe</li>
+  <li>Tailwind CSS</li>
+  <li>Zustand</li>
+  <li>React Hook Form</li>
+</ul>
 
-## Learn More
+<h2>🌟 Features</h2>
 
-To learn more about Next.js, take a look at the following resources:
+<ul>
+  <li>Server-side rendering for efficient performance using Next.js</li>
+  <li>Responsive and captivating design with Tailwind CSS</li>
+  <li>Secure payment processing powered by Stripe</li>
+  <li>Reliable data storage and retrieval with Supabase</li>
+  <li>Robust user authentication utilizing Supabase/Auth</li>
+  <li>Effortless music upload with an React Hook Form modal</li>
+  <li>Immersive music playback experience built on use-sound</li>
+</ul>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h2>🌐 Live Demo</h2>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p>Visit the live demo: <a href="https://spotify-clone-sable-zeta.vercel.app/">Spotify Clone Demo</a></p>
 
-## Deploy on Vercel
+<h2>🤝 Contributing</h2>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>Contributions are welcome! Follow these steps:</p>
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a new branch</li>
+  <li>Make your changes and commit them</li>
+  <li>Push your changes to your forked repository</li>
+  <li>Submit a pull request</li>
+</ol>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h2>📄 License</h2>
+
+<p>This project is licensed under the MIT License. Feel free to modify and distribute the project as needed.</p>
+
+<hr>
+
+<p align="center">🙌 Thank you for checking out the Spotify Clone project! If you have any questions or need assistance, feel free to reach out.</p>
