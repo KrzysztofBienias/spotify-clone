@@ -4,6 +4,10 @@
 
 <p align="center"><img src="https://github.com/bienku/spotify-clone/assets/99097883/997b039f-2d3b-4ddc-b47f-ac9200576e3d" alt="Main Screen"></p>
 
+<p align="center">TEST USER</p>
+<p align="center">login: test@test.com</p>
+<p align="center">password: test</p>
+
 <h2>⚙️ Installation</h2>
 
 <p>- Clone the repo</p>
